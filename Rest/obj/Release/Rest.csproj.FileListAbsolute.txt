@@ -1,0 +1,17 @@
+E:\Rest\Rest\bin\Release\Rest.dll
+E:\Rest\Rest\bin\Release\Rest.pdb
+E:\Rest\Rest\obj\Release\Rest.csprojResolveAssemblyReference.cache
+E:\Rest\Rest\obj\Release\Rest.Properties.Resources.resources
+E:\Rest\Rest\obj\Release\Rest.csproj.GenerateResource.Cache
+E:\Rest\Rest\obj\Release\Rest.dll
+E:\Rest\Rest\obj\Release\Rest.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\obj\Release\Rest.Properties.Resources.resources
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\obj\Release\Rest.csproj.GenerateResource.Cache
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\bin\Release\Rest.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\bin\Release\Rest.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\bin\Release\Newtonsoft.Json.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\bin\Release\Newtonsoft.Json.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\obj\Release\Rest.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Rest\obj\Release\Rest.pdb

@@ -1,0 +1,9 @@
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\bin\Debug\Domotica.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\bin\Debug\RestSharp.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\bin\Debug\RestSharp.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\obj\Debug\Domotica.csprojResolveAssemblyReference.cache
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\obj\Debug\Domotica.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\bin\Debug\Domotica.exe
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\Domotica\obj\Debug\Domotica.exe
