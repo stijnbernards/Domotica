@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using Domotica.Hue;
+using HueLibrary.Hue;
 
 namespace Domotica
 {
@@ -15,10 +15,10 @@ namespace Domotica
         {
             hueMain = new HueMain(IP, Username);
             hueMain.IndexLights();
-
+           
             hueMain.Lights.ForEach(x =>
             {
-                x.TurnOn();
+                
             });
 
             Brightness();

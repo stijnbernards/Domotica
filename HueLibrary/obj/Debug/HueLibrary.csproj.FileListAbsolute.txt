@@ -1,0 +1,8 @@
+C:\Users\stijn\Domotica\HueLibrary\bin\Debug\HueLibrary.dll
+C:\Users\stijn\Domotica\HueLibrary\bin\Debug\HueLibrary.pdb
+C:\Users\stijn\Domotica\HueLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\stijn\Domotica\HueLibrary\bin\Debug\RestSharp.dll
+C:\Users\stijn\Domotica\HueLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\stijn\Domotica\HueLibrary\bin\Debug\RestSharp.xml
+C:\Users\stijn\Domotica\HueLibrary\obj\Debug\HueLibrary.dll
+C:\Users\stijn\Domotica\HueLibrary\obj\Debug\HueLibrary.pdb

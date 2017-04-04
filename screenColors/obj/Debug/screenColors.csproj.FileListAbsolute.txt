@@ -1,0 +1,14 @@
+C:\Users\stijn\Domotica\screenColors\bin\Debug\screenColors.exe.config
+C:\Users\stijn\Domotica\screenColors\bin\Debug\screenColors.exe
+C:\Users\stijn\Domotica\screenColors\bin\Debug\screenColors.pdb
+C:\Users\stijn\Domotica\screenColors\obj\Debug\screenColors.csprojResolveAssemblyReference.cache
+C:\Users\stijn\Domotica\screenColors\obj\Debug\screenColors.Properties.Resources.resources
+C:\Users\stijn\Domotica\screenColors\obj\Debug\screenColors.csproj.GenerateResource.Cache
+C:\Users\stijn\Domotica\screenColors\obj\Debug\screenColors.exe
+C:\Users\stijn\Domotica\screenColors\obj\Debug\screenColors.pdb
+C:\Users\stijn\Domotica\screenColors\bin\Debug\HueLibrary.dll
+C:\Users\stijn\Domotica\screenColors\bin\Debug\RestSharp.dll
+C:\Users\stijn\Domotica\screenColors\bin\Debug\Newtonsoft.Json.dll
+C:\Users\stijn\Domotica\screenColors\bin\Debug\HueLibrary.pdb
+C:\Users\stijn\Domotica\screenColors\bin\Debug\RestSharp.xml
+C:\Users\stijn\Domotica\screenColors\bin\Debug\Newtonsoft.Json.xml
