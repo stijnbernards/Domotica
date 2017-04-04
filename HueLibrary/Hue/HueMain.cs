@@ -20,8 +20,6 @@ namespace HueLibrary.Hue
         {
             IRestResponse resp = HueCommand(new RestRequest("lights"));
 
-            Console.WriteLine(resp.Content);
-
             Lights = ResponseToList<Light>(resp);
         }
 

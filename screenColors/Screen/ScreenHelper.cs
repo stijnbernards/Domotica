@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HueLibrary.Hue;
 using ColorMode = HueLibrary.Hue.Lights.ColorMode;
@@ -14,35 +15,42 @@ namespace screenColors.Screen
 {
     public class ScreenHelper
     {
-        private Bitmap bitmap;
         private BitmapData bitmapData;
-        private int thumbnailSize = 32; 
+        private int thumbnailSize = 128;
+
+        HueMain hueMain = new HueMain("192.168.178.25", "X3v1tPkd2szuFL9EXJ1LwYy9yZMr2EwZt3UUQbfQ");
 
         public ScreenHelper()
         {
-            bitmap = new Bitmap(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width,
-                                           System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height,
-                                           PixelFormat.Format32bppArgb);
+            while (true)
+            {
+                Thread.Sleep(500);
+                Bitmap bitmap = new Bitmap(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width,
+                    System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height,
+                    PixelFormat.Format32bppArgb);
 
-            Graphics gfxScreenshot = Graphics.FromImage(bitmap);
+                Graphics gfxScreenshot = Graphics.FromImage(bitmap);
 
-            gfxScreenshot.CopyFromScreen(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X,
-                                        System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y,
-                                        0,
-                                        0,
-                                        System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size,
-                                        CopyPixelOperation.SourceCopy);
+                gfxScreenshot.CopyFromScreen(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X,
+                    System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y,
+                    0,
+                    0,
+                    System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size,
+                    CopyPixelOperation.SourceCopy);
 
-            bitmap = new Bitmap(bitmap, new Size(thumbnailSize, thumbnailSize));
+                Bitmap thumbBitmap = new Bitmap(bitmap, new Size(thumbnailSize, thumbnailSize));
 
-            bitmap.Save("test.png", ImageFormat.Png);
+                bitmapData = thumbBitmap.LockBits(
+                    new Rectangle(0, 0, thumbBitmap.Width, thumbBitmap.Height),
+                    ImageLockMode.ReadOnly,
+                    PixelFormat.Format32bppArgb);
 
-            bitmapData = bitmap.LockBits(
-                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                ImageLockMode.ReadOnly,
-                PixelFormat.Format32bppArgb);
+                GetDominantColor();
 
-            GetDominantColor();
+                gfxScreenshot.Dispose();
+                thumbBitmap.Dispose();
+                bitmap.Dispose();
+            }
         }
 
         public void GetDominantColor()
@@ -75,13 +83,20 @@ namespace screenColors.Screen
             float avgG = (float)totals[1] / (thumbnailSize * thumbnailSize);
             float avgR = (float)totals[2] / (thumbnailSize * thumbnailSize);
 
-            double[] xy = HueHelpers.RGBToXY(avgR, avgG, avgB);
+            double brightness;
 
-            HueMain hueMain = new HueMain("192.168.178.25", "X3v1tPkd2szuFL9EXJ1LwYy9yZMr2EwZt3UUQbfQ");
+            double[] xy = HueHelpers.RGBToXY(avgR, avgG, avgB, out brightness);
+
             hueMain.IndexLights();
 
+            hueMain.Lights[1].TurnOn();
+            hueMain.Lights[1].SetXY(xy);
+            hueMain.Lights[1].Brightness((int)brightness * 6);
+            hueMain.Lights[1].SetColorMode(ColorMode.XY);
+            hueMain.Lights[1].Apply();
             hueMain.Lights[0].TurnOn();
             hueMain.Lights[0].SetXY(xy);
+            hueMain.Lights[0].Brightness((int)brightness * 6);
             hueMain.Lights[0].SetColorMode(ColorMode.XY);
             hueMain.Lights[0].Apply();
         }

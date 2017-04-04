@@ -10,28 +10,41 @@ namespace HueLibrary.Hue
     {
         private const int MAX_COLOR = 255;
 
-        public static double[] RGBToXY(double red, double green, double blue)
+        public static double[] RGBToXY(double red, double green, double blue, out double brightness)
         {
             red = red / MAX_COLOR;
             green = green / MAX_COLOR;
             blue = blue / MAX_COLOR;
 
-            red = (red > 0.04045F) ? Math.Pow((red / 0.055F) / (1.0F + 0.055F), 2.4F) : (red / 12.92F);
-            green = (green > 0.04045F) ? Math.Pow((green / 0.055F) / (1.0F + 0.055F), 2.4F) : (green / 12.92F);
-            blue = (blue > 0.04045F) ? Math.Pow((blue / 0.055F) / (1.0F + 0.055F), 2.4F) : (blue / 12.92F);
+            red = (red > 0.04045) ? Math.Pow((red + 0.055) / (1.0 + 0.055), 2.4) : (red / 12.92);
+            green = (green > 0.04045) ? Math.Pow((green + 0.055) / (1.0 + 0.055), 2.4) : (green / 12.92);
+            blue = (blue > 0.04045) ? Math.Pow((blue + 0.055) / (1.0 + 0.055), 2.4) : (blue / 12.92);
 
-            red = red > 0.675F ? 0.675F : red < 0.322F ? 0.322F : red;
-            green = green > 0.518F ? 0.518F : green < 0.4091F ? 0.4091F : green;
-            blue = blue > 0.167F ? 0.167F : blue < 0.04F ? 0.04F : blue;
+            double X = red * 0.664511 + green * 0.154324 + blue * 0.162028;
+            double Y = red * 0.283881 + green * 0.668433 + blue * 0.047685;
+            double Z = red * 0.000088 + green * 0.072310 + blue * 0.986039;
 
-            double X = red * 0.649926f + green * 0.103455f + blue * 0.197109f;
-            double Y = red * 0.234327f + green * 0.743075f + blue * 0.022598f;
-            double Z = red * 0.0000000f + green * 0.053077f + blue * 1.035763f;
+            double fx = X / (X + Y + Z);
+            double fy = Y / (X + Y + Z);
 
-            double x = X / (X + Y + Z);
-            double y = Y / (X + Y + Z);
+            if (!CheckDouble(fx))
+            {
+                fx = 0.0f;
+            }
 
-            return new []{x, y};
+            if (!CheckDouble(fy))
+            {
+                fy = 0.0f;
+            }
+
+            brightness = Math.Round(Y * 1000);
+
+            return new[] {Math.Round(fx, 4), Math.Round(fy, 4)};
+        }
+
+        private static bool CheckDouble(double number)
+        {
+            return !Double.IsNaN(number) && !Double.IsInfinity(number);
         }
     }
 }

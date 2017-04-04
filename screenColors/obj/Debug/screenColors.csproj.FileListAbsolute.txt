@@ -12,3 +12,17 @@ C:\Users\stijn\Domotica\screenColors\bin\Debug\Newtonsoft.Json.dll
 C:\Users\stijn\Domotica\screenColors\bin\Debug\HueLibrary.pdb
 C:\Users\stijn\Domotica\screenColors\bin\Debug\RestSharp.xml
 C:\Users\stijn\Domotica\screenColors\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\screenColors.exe.config
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\obj\Debug\screenColors.exe
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\obj\Debug\screenColors.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\screenColors.exe
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\screenColors.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\HueLibrary.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\RestSharp.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\HueLibrary.pdb
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\RestSharp.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\obj\Debug\screenColors.csprojResolveAssemblyReference.cache
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\obj\Debug\screenColors.Properties.Resources.resources
+C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\screenColors\obj\Debug\screenColors.csproj.GenerateResource.Cache
