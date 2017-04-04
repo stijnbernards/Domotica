@@ -3,13 +3,9 @@ C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\o
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\obj\Debug\RazerRestService.csproj.RazerRestService.exe.config
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\RazerRestService.exe
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\RazerRestService.pdb
-C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\Corale.Colore.dll
-C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\Rest.dll
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\MySql.Data.dll
-C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\Corale.Colore.xml
-C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\Rest.pdb
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Stijn\documents\visual studio 2015\Projects\Domotica\RazerRestService\obj\Debug\RazerRestService.exe

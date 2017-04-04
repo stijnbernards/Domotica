@@ -81,82 +81,98 @@ namespace Rest.Server
                 url = string.Join("/", urlsp);
             }
 
-            if (url.Contains(".css"))
+            try
             {
-                response = FileManager.LoadCSSFile(url);
-                ctx.Response.ContentEncoding = utf;
-                ctx.Response.ContentType = Constants.CONTENT_CSS;
-                ctx.Response.ContentLength64 = utf.GetByteCount(response);
-                ctx.Response.StatusCode = Constants.StatusCodes.OK;
 
-                if (!RestServer.Developer)
+                if (url.Contains(".css"))
                 {
-                    ctx.Response.AddHeader("Cache-Control", "max-age=86400");
+                    response = FileManager.LoadCSSFile(url);
+                    ctx.Response.ContentEncoding = utf;
+                    ctx.Response.ContentType = Constants.CONTENT_CSS;
+                    ctx.Response.ContentLength64 = utf.GetByteCount(response);
+                    ctx.Response.StatusCode = Constants.StatusCodes.OK;
+
+                    if (!RestServer.Developer)
+                    {
+                        ctx.Response.AddHeader("Cache-Control", "max-age=86400");
+                    }
+
+                    ctx.Response.OutputStream.Write(utf.GetBytes(response), 0, utf.GetByteCount(response));
+                    ctx.Response.Close();
+
+                    return;
                 }
+                else if (url.Contains(".js"))
+                {
+                    response = FileManager.LoadCSSFile(url);
+                    ctx.Response.ContentEncoding = utf;
+                    ctx.Response.ContentType = Constants.CONTENT_JAVASCRIPT;
+                    ctx.Response.ContentLength64 = utf.GetByteCount(response);
+                    ctx.Response.StatusCode = Constants.StatusCodes.OK;
+
+                    if (!RestServer.Developer)
+                    {
+                        ctx.Response.AddHeader("Cache-Control", "private, max-age=86400");
+                    }
+
+                    ctx.Response.OutputStream.Write(utf.GetBytes(response), 0, utf.GetByteCount(response));
+                    ctx.Response.Close();
+
+                    return;
+                }
+                else if (url.Contains(".png") || url.Contains(".jpg") || url.Contains(".ico"))
+                {
+                    ImageFile image = FileManager.LoadImagefile(url);
+
+                    ctx.Response.ContentType = image.GetContentType();
+                    ctx.Response.ContentLength64 = image.GetStream().Length;
+
+                    if (!RestServer.Developer)
+                    {
+                        ctx.Response.AddHeader("Cache-Control", "max-age=86400");
+                    }
+
+                    image.GetStream().WriteTo(ctx.Response.OutputStream);
+
+                    ctx.Response.OutputStream.Flush();
+                    ctx.Response.OutputStream.Close();
+                    ctx.Response.Close();
+
+                    return;
+                }
+                else if (url.Contains(".pdf"))
+                {
+
+                    FileStream fs = File.OpenRead(FileManager.BaseDir + url);
+
+                    ctx.Response.ContentType = Constants.CONTENT_PDF;
+                    ctx.Response.ContentLength64 = fs.Length;
+                    ctx.Response.StatusCode = Constants.StatusCodes.OK;
+
+                    fs.CopyTo(ctx.Response.OutputStream);
+
+                    if (!RestServer.Developer)
+                    {
+                        ctx.Response.AddHeader("Cache-Control", "max-age=86400");
+                    }
+
+                    ctx.Response.OutputStream.Flush();
+                    ctx.Response.OutputStream.Close();
+                    ctx.Response.Close();
+
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                response = Constants.STATUS_FALSE;
+                ctx.Response.ContentEncoding = utf;
+                ctx.Response.ContentType = Constants.CONTENT_JSON;
+                ctx.Response.ContentLength64 = utf.GetByteCount(response);
+                ctx.Response.StatusCode = 404;
 
                 ctx.Response.OutputStream.Write(utf.GetBytes(response), 0, utf.GetByteCount(response));
                 ctx.Response.Close();
-
-                return;
-            }
-            else if (url.Contains(".js"))
-            {
-                response = FileManager.LoadCSSFile(url);
-                ctx.Response.ContentEncoding = utf;
-                ctx.Response.ContentType = Constants.CONTENT_JAVASCRIPT;
-                ctx.Response.ContentLength64 = utf.GetByteCount(response);
-                ctx.Response.StatusCode = Constants.StatusCodes.OK;
-
-                if (!RestServer.Developer)
-                {
-                    ctx.Response.AddHeader("Cache-Control", "private, max-age=86400");
-                }
-
-                ctx.Response.OutputStream.Write(utf.GetBytes(response), 0, utf.GetByteCount(response));
-                ctx.Response.Close();
-
-                return;
-            }
-            else if (url.Contains(".png") || url.Contains(".jpg") || url.Contains(".ico"))
-            {
-                ImageFile image = FileManager.LoadImagefile(url);
-
-                ctx.Response.ContentType = image.GetContentType();
-                ctx.Response.ContentLength64 = image.GetStream().Length;
-
-                if (!RestServer.Developer)
-                {
-                    ctx.Response.AddHeader("Cache-Control", "max-age=86400");
-                }
-
-                image.GetStream().WriteTo(ctx.Response.OutputStream);
-
-                ctx.Response.OutputStream.Flush();
-                ctx.Response.OutputStream.Close();
-                ctx.Response.Close();
-
-                return;
-            }
-            else if (url.Contains(".pdf"))
-            {
-
-                FileStream fs = File.OpenRead(FileManager.BaseDir + url);
-                
-                ctx.Response.ContentType = Constants.CONTENT_PDF;
-                ctx.Response.ContentLength64 = fs.Length;
-                ctx.Response.StatusCode = Constants.StatusCodes.OK;
-
-                fs.CopyTo(ctx.Response.OutputStream);
-
-                if (!RestServer.Developer)
-                {
-                    ctx.Response.AddHeader("Cache-Control", "max-age=86400");
-                }
-
-                ctx.Response.OutputStream.Flush();
-                ctx.Response.OutputStream.Close();
-                ctx.Response.Close();
-
                 return;
             }
 

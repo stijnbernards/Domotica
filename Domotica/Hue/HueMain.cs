@@ -41,11 +41,10 @@ namespace Domotica.Hue
         {
             JObject responseObject = JObject.Parse(response.Content);
             List<T> result = new List<T>();
-            T item;
 
             foreach (KeyValuePair<string, JToken> kvp in responseObject)
             {
-                item = kvp.Value.ToObject<T>();
+                T item = kvp.Value.ToObject<T>();
                 item.ID = kvp.Key;
                 result.Add(item);
             }

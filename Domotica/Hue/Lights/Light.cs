@@ -46,14 +46,14 @@ namespace Domotica.Hue.Lights
             stateRequest.AddJsonBody(new { hue = State.Hue });
         }
 
-        public void Sat(int sat)
+        public void Saturation(int sat)
         {
             State.Sat = sat;
 
             stateRequest.AddJsonBody(new { sat = State.Sat });
         }
 
-        public void Execute()
+        public void Apply()
         {
             HueMain.HueClient.Execute(currentRequest);
             currentRequest = null;

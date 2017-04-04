@@ -55,6 +55,7 @@ namespace RazerRestService
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
+                    Console.WriteLine(ip);
                     return ip.ToString();
                 }
             }

@@ -17,7 +17,11 @@ namespace Rest.Server.Files
         public ImageFile(string filePath, string type)
         {
             fileType = type.Replace(".", "");
-            image = new Bitmap(FileManager.BaseDir + filePath);
+
+            if (File.Exists(FileManager.BaseDir + filePath))
+            {
+                image = new Bitmap(FileManager.BaseDir + filePath);
+            }
         }
 
         public ImageFile(ImageFile fb) : base(fb)

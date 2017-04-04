@@ -33,9 +33,9 @@ namespace Domotica
                 Thread.Sleep(50);
 
                 hueMain.Lights[2].Brightness(25);
-                hueMain.Lights[2].Sat(251);
+                hueMain.Lights[2].Saturation(251);
                 hueMain.Lights[2].Hue(6291);
-                hueMain.Lights[2].Execute();
+                hueMain.Lights[2].Apply();
             }
         }
     }
