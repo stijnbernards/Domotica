@@ -94,11 +94,6 @@ namespace screenColors.Screen
             hueMain.Lights[1].Brightness((int)brightness * 6);
             hueMain.Lights[1].SetColorMode(ColorMode.XY);
             hueMain.Lights[1].Apply();
-            hueMain.Lights[0].TurnOn();
-            hueMain.Lights[0].SetXY(xy);
-            hueMain.Lights[0].Brightness((int)brightness * 6);
-            hueMain.Lights[0].SetColorMode(ColorMode.XY);
-            hueMain.Lights[0].Apply();
         }
     }
 }
